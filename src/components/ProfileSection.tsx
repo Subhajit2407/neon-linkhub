@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const ProfileSection: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
@@ -26,13 +27,16 @@ const ProfileSection: React.FC = () => {
   return (
     <div className={`flex flex-col items-center text-center mb-10 transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
       <div className="relative group mb-5">
-        <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-matrix-green to-matrix-accent opacity-50 blur-sm group-hover:opacity-75 transition-opacity"></div>
-        <div className="relative overflow-hidden rounded-full w-24 h-24 border-2 border-matrix-green">
-          <img 
-            src="/lovable-uploads/aee333d9-56f8-42ed-94a8-7e74bb7aa66f.png" 
-            alt="Profile" 
-            className="w-full h-full object-cover" 
-          />
+        <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-matrix-green to-matrix-accent opacity-50 blur-sm group-hover:opacity-75 transition-opacity animate-pulse"></div>
+        <div className="relative overflow-hidden rounded-full w-28 h-28 border-2 border-matrix-green animate-matrix-fade">
+          <Avatar className="w-full h-full">
+            <AvatarImage 
+              src="/lovable-uploads/0293a37d-ec8a-4771-ac97-bfcc98a41603.png" 
+              alt="Profile" 
+              className="w-full h-full object-cover"
+            />
+            <AvatarFallback className="bg-matrix-dark text-matrix-green">ST</AvatarFallback>
+          </Avatar>
         </div>
       </div>
       
